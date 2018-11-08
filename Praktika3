@@ -1,0 +1,214 @@
+// Shape.java <<abstract>>
+
+package com.company;
+public abstract class Shape {
+    protected String color;
+    protected boolean filled;
+    public Shape () {
+    }
+    public Shape (String color_1, boolean filled_1) {
+        color = color_1;
+        filled = filled_1;
+    }
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color_2) {
+        color = color_2;
+    }
+    public boolean isFilled() {
+        return filled;
+    }
+    public void setFilled(boolean filled_2) {
+        filled = filled_2;
+    }
+    public abstract double getArea();
+    public abstract double getPerimeter();
+    public abstract String toString();
+    public void main(String[] args)
+    {
+    }
+}
+
+
+// Circle.java
+
+package com.company;
+public class Circle extends Shape {
+    protected double radius;
+    public Circle() {
+    }
+    public Circle(double radius_1, String color_1, boolean filled_1) {
+        radius = radius_1;
+        color = color_1;
+        filled = filled_1;
+    }
+    public double getRadius() {
+        return radius;
+    }
+    public void setRadius(double radius_2) {
+        radius = radius_2;
+    }
+    @Override
+    public double getArea() {
+        return 3.14*Math.pow(radius,2);
+    }
+    @Override
+    public double getPerimeter() {
+        return 2*3.14*radius;
+    }
+    @Override
+    public String toString() {
+        return "Shape - circle, color " + this.color + ", radius - " + radius;
+    }
+}
+
+
+// Rectangle.java
+
+package com.company;
+public class Rectangle extends Shape {
+    protected double width;
+    protected double length;
+    public Rectangle() {
+    }
+    public Rectangle (double width_2, double length_2) {
+        width = width_2;
+        length = length_2;
+    }
+    public Rectangle (double width_1, double length_1, String color_1, boolean filled_1) {
+        width = width_1;
+        length = length_1;
+        color = color_1;
+        filled = filled_1;
+    }
+    public double getWidth() {
+        return width;
+    }
+    public void setWidth(double width_2) {
+        width = width_2;
+    }
+    public double getLength() {
+        return length;
+    }
+    public void setLength(double length_2) {
+        length = length_2;
+    }
+    @Override
+    public double getArea() {
+        return width*length;
+    }
+    @Override
+    public double getPerimeter() {
+        return (width+length)*2;
+    }
+    @Override
+    public String toString() {
+       return "Shape - rectangle, color - " + this.color + ", width - " + this.width + ", length - " + this.length;
+    }
+    public void main(String[] args)
+    {
+    }
+}
+
+
+// Square.java
+
+package com.company;
+public class Square extends Rectangle {
+    double side;
+    public Square()
+    {
+    }
+    public Square(double side_1)
+    {
+        side = side_1;
+    }
+    public Square(double side_2, String color_2, boolean filled_3)
+    {
+        side = side_2;
+        color = color_2;
+        filled = filled_3;
+    }
+    public double getSide()
+    {
+        return side;
+    }
+    public void setSide(double side_3)
+    {
+        side = side_3;
+    }
+    public void setWidth(double side_4)
+    {
+        side = side_4;
+    }
+    public void setLength(double side_5)
+    {
+        side = side_5;
+    }
+    @Override
+    public String toString()
+    {
+        return "Shape - square, color - " + this.color + ", side - " + this.side;
+    }
+    public void main(String[] args)
+    {
+    }
+}
+
+
+// TestClass.java 
+
+package com.company;
+public class TestClass {
+    public static void main(String[] args) {
+        Shape s1 = new Circle(5.5, "RED", false);
+        System.out.println(s1);
+        System.out.println(s1.getArea());
+        System.out.println(s1.getPerimeter());
+        System.out.println(s1.getColor());
+        System.out.println(s1.isFilled());
+        System.out.println(((Circle) s1).getRadius());
+
+        Circle c1 = (Circle)s1;
+        System.out.println(c1);
+        System.out.println(c1.getArea());
+        System.out.println(c1.getPerimeter());
+        System.out.println(c1.getColor());
+        System.out.println(c1.isFilled());
+        System.out.println(c1.getRadius());
+
+        Shape s3 = new Rectangle(1.0, 2.0, "RED", false);
+        System.out.println(s3);
+        System.out.println(s3.getArea());
+        System.out.println(s3.getPerimeter());
+        System.out.println(s3.getColor());
+        System.out.println(((Rectangle) s3).getLength());
+
+        Rectangle r1 = (Rectangle)s3;
+        System.out.println(r1);
+        System.out.println(r1.getArea());
+        System.out.println(r1.getColor());
+        System.out.println(r1.getLength());
+
+        Shape s4 = new Square(6.6);
+        System.out.println(s4);
+        System.out.println(s4.getArea());
+        System.out.println(s4.getColor());
+        System.out.println(((Square) s4).getSide());
+
+        Rectangle r2 = (Rectangle)s4;
+        System.out.println(r2);
+        System.out.println(r2.getArea());
+        System.out.println(r2.getColor());
+        System.out.println(((Square) r2).getSide());
+        System.out.println(r2.getLength());
+
+        Square sq1 = (Square)r2;
+        System.out.println(sq1);
+        System.out.println(sq1.getArea());
+        System.out.println(sq1.getColor());
+        System.out.println(sq1.getSide());
+        System.out.println(sq1.getLength());
+    }
+}
