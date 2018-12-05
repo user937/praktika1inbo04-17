@@ -1,0 +1,75 @@
+// СортировкаStudentsByGPA.java
+
+пакет com.company;
+import java.util.Comparator;
+Открытый класс SortingStudentsByGPA реализует Comparator {
+    @Override
+    public int compare (Object сначала, Object second) {
+        if (((Студент) сначала) .getGPA ()> ((Студент) второй) .getGPA ()) {
+            return -1;
+        } else return 1;
+    }
+}
+
+// SortTest.java
+
+пакет com.company;
+import java.util.Collections;
+открытый класс SortTest {
+  public static void main (String [] args) {
+	Пример StudentList = новый StudentList ();
+        System.out.println («Перед сортировкой:»);
+        для (Студенческий студент: example.list) {
+            System.out.println (student.toString ());
+        }
+        Collections.sort (example.list, новый SortingStudentsByGPA ());
+        System.out.println («После сортировки:»);
+        для (Студенческий студент: example.list) {
+            System.out.println (student.toString ());
+        }
+    }
+}
+
+// Student.java
+
+пакет com.company;
+публичный класс Студент {
+    Имя строки;
+    Строковое имя;
+    int GPA;
+    public Student (String name, String lastname, int GPA) {
+        this.name = name;
+        this.lastname = lastname;
+        this.GPA = GPA;
+    }
+    public String getName () {
+        имя возврата;
+    }
+    public String getLastname () {
+        return lastname;
+    }
+    public int getGPA () {
+        return GPA;
+    }
+    @Override
+    public String toString () {
+        return "Student:" + "name - '" + name + "'" +
+                ", lastname - '" + lastname + "'" + ", GPA -" + GPA;
+    }
+}
+
+//StudentList.java
+
+пакет com.company;
+import java.util.ArrayList;
+public class StudentList {
+    Студент один = новый студент («Первый», «Студент», 4);
+    Студент два = новый Студент («Второй», «Студент», 5);
+    Студент три = новый студент («Третий», «Студент», 3);
+    ArrayList <Student> list = new ArrayList <> ();
+    StudentList () {
+        list.add (один);
+        list.add (два);
+        list.add (три);
+    }
+}
