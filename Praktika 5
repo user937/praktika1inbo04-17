@@ -1,0 +1,25 @@
+пакет com.pract_3;
+import java.util.Scanner;
+
+public class Recursion {
+    public void recursion (int i) {
+        int x = 1;
+        пытаться {
+            int m = x / i; // Конечно, что мы не делим на нуль
+            System.out.println (я);
+            я--;
+            рекурсии (я);
+        }
+        catch (ArithmeticException e) {// Арифметическое исключение «деление на ноль» выбрасывает
+            вернуть;
+        }
+    }
+    
+    public static void main (String [] args) {
+        int num;
+        Сканер in = новый сканер (System.in);
+        num = in.nextInt ();
+        Рекурсия r = новая рекурсия ();
+        r.recursion (число);
+    }
+}
