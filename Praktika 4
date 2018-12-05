@@ -1,0 +1,87 @@
+//Match.java
+
+пакет com.pract_3;
+
+import java.awt. *;
+import java.awt.event. *;
+import javax.swing. *;
+
+открытый класс Match расширяет JFrame {
+    частная команда String;
+    закрытая строка;
+    private int milan = 0;
+    private int madrid = 0;
+    private int milanResult = 0;
+    private int madridResult = 0;
+    частный результат JLabel;
+    частный JLabel lastScorer;
+    частный лейбл;
+    частный JButton addMilan;
+    частный JButton addMadrid;
+
+    private void updateWinner () {
+        lastScorer.setText («Последний бомбардир» + забил);
+        addMadrid.setText («Реал Мадрид» + мадрид);
+        addMilan.setText («Милан» + милан);
+
+        result.setText ("Результат: Реал Мадрид:" + madridResult + "X Милан:" + milanResult);
+
+        если (madrid> milan) {
+            команда = "Мадрид";
+            winner.setText ("Победитель:" + команда);}
+        if (madrid <milan) {
+            команда = «Милан»;
+            winner.setText ("Победитель:" + команда);}
+        if (madrid == milan) {
+            team = "Draw";
+            winner.setText («Победитель:« + команда »);
+        }
+    }
+    public Match () {
+        супер («Футбольный матч»);
+        super.setSize (500500);
+        result = new JLabel ("Результат: Реал Мадрид:" + madridResult + "X Милан:" + milanResult);
+        winner = new Label («Победитель:« + команда »);
+        lastScorer = новый JLabel («Последний бомбардир:« забил »);
+        addMilan = новый JButton («Милан» + милан);
+        addMadrid = новый JButton («Реал Мадрид» + мадрид);
+        JPanel buttonsPanel = новый JPanel (новый FlowLayout ());
+        добавить (победитель, BorderLayout.CENTER);
+        add (lastScorer, BorderLayout.PAGE_START);
+        добавить (результат, BorderLayout.NORTH);
+        buttonsPanel.add (победитель);
+        buttonsPanel.add (lastScorer);
+        buttonsPanel.add (addMadrid);
+        buttonsPanel.add (addMilan);
+        add (buttonsPanel, BorderLayout.SOUTH);
+        addMilan.addActionListener (новый ActionListener () {
+            public void actionPerformed (ActionEvent e) {
+                milan = milan + 1;     
+                забил = «Милан»;
+                milanResult = milan;
+                updateWinner ();
+            }
+        });
+        addMadrid.addActionListener (новый ActionListener () {
+            @Override
+            public void actionPerformed (ActionEvent e) {
+                madrid = madrid + 1;
+                забил = «Реал Мадрид»;
+                madridResult = madrid;
+               updateWinner ();
+            }
+        });
+        setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+    }
+}
+
+//Main.java
+
+пакет com.pract_3;
+public class Main {
+    public static void main (String [] args) {
+        Match app = new Match ();
+        app.setVisible (истина);
+        app.pack ();
+    }
+}
