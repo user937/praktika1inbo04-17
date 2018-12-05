@@ -1,0 +1,214 @@
+// Shape.java << аннотация >>
+
+пакет com.company;
+public abstract class Shape {
+    защищенный цвет строки;
+    защищенные булевы заполнены;
+    public Shape () {
+    }
+    public Shape (String color_1, boolean filled_1) {
+        color = color_1;
+        заполнено = заполнено_1;
+    }
+    public String getColor () {
+        цвет возврата;
+    }
+    public void setColor (String color_2) {
+        color = color_2;
+    }
+    public boolean isFilled () {
+        возврат заполнен;
+    }
+    public void setFilled (boolean filled_2) {
+        заполнено = заполнено_2;
+    }
+    публичный абстрактный double getArea ();
+    публичный абстрактный двойной getPerimeter ();
+    public abstract String toString ();
+    public void main (String [] args)
+    {
+    }
+}
+
+
+// Circle.java
+
+пакет com.company;
+Открытый класс Circle расширяет форму {
+    защищенный двойной радиус;
+    public Circle () {
+    }
+    public Circle (double radius_1, String color_1, boolean filled_1) {
+        радиус = радиус_1;
+        color = color_1;
+        заполнено = заполнено_1;
+    }
+    public double getRadius () {
+        радиус возврата;
+    }
+    public void setRadius (double radius_2) {
+        радиус = радиус_2;
+    }
+    @Override
+    public double getArea () {
+        return 3.14 * Math.pow (радиус, 2);
+    }
+    @Override
+    public double getPerimeter () {
+        return 2 * 3.14 * радиус;
+    }
+    @Override
+    public String toString () {
+        return "Shape - circle, color" + this.color + ", radius -" + radius;
+    }
+}
+
+
+// Rectangle.java
+
+пакет com.company;
+Открытый класс Rectangle расширяет форму {
+    защищенная двойная ширина;
+    защищенная двойная длина;
+    public Rectangle () {
+    }
+    public Rectangle (double width_2, double length_2) {
+        width = width_2;
+        длина = длина_2;
+    }
+    public Rectangle (double width_1, double length_1, String color_1, boolean filled_1) {
+        width = width_1;
+        length = length_1;
+        color = color_1;
+        заполнено = заполнено_1;
+    }
+    public double getWidth () {
+        ширина возврата;
+    }
+    public void setWidth (double width_2) {
+        width = width_2;
+    }
+    public double getLength () {
+        длина возврата;
+    }
+    public void setLength (double length_2) {
+        длина = длина_2;
+    }
+    @Override
+    public double getArea () {
+        обратная ширина * длина;
+    }
+    @Override
+    public double getPerimeter () {
+        return (ширина + длина) * 2;
+    }
+    @Override
+    public String toString () {
+       return "Shape - прямоугольник, цвет -" + this.color + ", width -" + this.width + ", length -" + this.length;
+    }
+    public void main (String [] args)
+    {
+    }
+}
+
+
+// Square.java
+
+пакет com.company;
+Открытый класс Square расширяет прямоугольник {
+    двухсторонняя;
+    общественная площадь ()
+    {
+    }
+    общественная площадь (double side_1)
+    {
+        side = side_1;
+    }
+    public Square (double side_2, String color_2, boolean fill_3)
+    {
+        side = side_2;
+        color = color_2;
+        заполнено = заполнено_3;
+    }
+    public double getSide ()
+    {
+        обратная сторона;
+    }
+    public void setSide (double side_3)
+    {
+        side = side_3;
+    }
+    public void setWidth (double side_4)
+    {
+        side = side_4;
+    }
+    public void setLength (double side_5)
+    {
+        side = side_5;
+    }
+    @Override
+    public String toString ()
+    {
+        return "Shape - square, color -" + this.color + ", side -" + this.side;
+    }
+    public void main (String [] args)
+    {
+    }
+}
+
+
+// TestClass.java 
+
+пакет com.company;
+открытый класс TestClass {
+    public static void main (String [] args) {
+        Форма s1 = новый круг (5.5, «RED», false);
+        System.out.println (S1);
+        System.out.println (s1.getArea ());
+        System.out.println (s1.getPerimeter ());
+        System.out.println (s1.getColor ());
+        System.out.println (s1.isFilled ());
+        System.out.println (((Круг) s1) .getRadius ());
+
+        Круг c1 = (Круг) s1;
+        System.out.println (с1);
+        System.out.println (c1.getArea ());
+        System.out.println (c1.getPerimeter ());
+        System.out.println (c1.getColor ());
+        System.out.println (c1.isFilled ());
+        System.out.println (c1.getRadius ());
+
+        Форма s3 = новый прямоугольник (1.0, 2.0, «RED», false);
+        System.out.println (s3);
+        System.out.println (s3.getArea ());
+        System.out.println (s3.getPerimeter ());
+        System.out.println (s3.getColor ());
+        System.out.println (((Прямоугольник) s3) .getLength ());
+
+        Прямоугольник r1 = (Прямоугольник) s3;
+        System.out.println (R1);
+        System.out.println (r1.getArea ());
+        System.out.println (r1.getColor ());
+        System.out.println (r1.getLength ());
+
+        Форма s4 = новая площадь (6.6);
+        System.out.println (s4);
+        System.out.println (s4.getArea ());
+        System.out.println (s4.getColor ());
+        System.out.println (((Квадрат) s4) .getSide ());
+
+        Прямоугольник r2 = (Прямоугольник) s4;
+        System.out.println (г2);
+        System.out.println (r2.getArea ());
+        System.out.println (r2.getColor ());
+        System.out.println (((Квадрат) r2) .getSide ());
+        System.out.println (r2.getLength ());
+
+        Квадрат sq1 = (Квадрат) r2;
+        System.out.println (SQ1);
+        System.out.println (sq1.getArea ());
+        System.out.println (sq1.getColor ());
+        System.out.println (sq1.getSide ());
+        System.out.println (sq1.getLength ());
+    }
+}
